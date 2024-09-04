@@ -18,7 +18,7 @@ export default class ContaCorrente extends ContaBancaria{
         var valorDisponivel = this.getSaldo() + this.limite;
 
         if(valor <= 0 || valor > valorDisponivel){
-            console.log("Valor acima do limite disponivel em conta")
+            console.log("Saldo insuficiente para saque;")
             return;
         }
 
@@ -26,9 +26,6 @@ export default class ContaCorrente extends ContaBancaria{
             var aux = valor - this.getSaldo();
             this.limite = this.limite - aux;
             this.setSaldo(0);
-            console.log(`Saque de ${valor} realizado com sucesso!!!`);
-            console.log(`Seu saldo é ${this.getSaldo()}!!!`);
-            console.log(`Seu limite é de ${this.limite}!!!`);
             return;
         }
 

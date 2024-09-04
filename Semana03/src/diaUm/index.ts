@@ -1,25 +1,20 @@
-import Cachorro from "./Cachorro";
-import Dono from "./Dono";
+import leia from "readline-sync";
+import ContaBancaria from "./ContaBancaria";
+import Titular from "./Titular";
+import ContaCorrente from "./ContaCorrente";
+
+var nome = leia.question("Diga seu Nome: ")
+var cpf = leia.question("Digite seu CPF: ")
+var chavePix = leia.question("Qual a sua chave PIX: ")
+
+var t1 = new Titular(nome, cpf);
+var c1 = new ContaBancaria(t1, chavePix);
+
+var cc = new ContaCorrente(t1, chavePix);
 
 
 
-let d1 = new Dono("Alice", "(88) 8888-8889" );
-let c1 = new Cachorro("Luke", "Pincher", "preto", "nanico", d1);
-
-c1.exibirCachorro();
-c1.exibirDono();
-
-var d2 = new Dono("Diego", "(88) 8888-8888")
-var c2 = new Cachorro("Pingo", "Dogue", "Branco", "Grande", d2);
-
-
-c2.exibirCachorro();
-c2.exibirDono();
-
-let d3 = new Dono("Juliana", "(88) 8888-8887")
-let c3 = new Cachorro("Mel", "Vira-lata", "Tricolor", "pequeno", d3)
-
-c3.exibirCachorro();
-
-var dataAtual = new Date();
-console.log(dataAtual);
+c1.verSaldo();
+c1.depositar(150000);
+c1.sacar(1400);
+c1.mostrarDadosConta();

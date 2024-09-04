@@ -1,20 +1,30 @@
+import Banco from "./Banco";
 import leia from "readline-sync";
-import ContaBancaria from "./ContaBancaria";
-import Titular from "./Titular";
-import ContaCorrente from "./ContaCorrente";
 
-var nome = leia.question("Diga seu Nome: ")
-var cpf = leia.question("Digite seu CPF: ")
-var chavePix = leia.question("Qual a sua chave PIX: ")
+var falidoBank = new Banco();
 
-var t1 = new Titular(nome, cpf);
-var c1 = new ContaBancaria(t1, chavePix);
+var opcao = 0;
 
-var cc = new ContaCorrente(t1, chavePix);
+do{
+    console.log("--------------------------MENU----------------------------");
+    opcao = leia.keyInSelect(["Criar Conta", "Transferencia", "Remover Conta", "Mostrar Contas"]) + 1;
+    switch (opcao) {
+        case 1:
+            falidoBank.addConta();
+            break;
 
+        case 2:
+            falidoBank.transferir();
+            break;
 
-
-c1.verSaldo();
-c1.depositar(150000);
-c1.sacar(1400);
-c1.mostrarDadosConta();
+        case 3:
+            falidoBank.removerConta();
+            break;
+        
+        case 4:
+            falidoBank.mostrarContas();
+            break;
+    }
+    
+    console.log("------------------------------------------------------");
+}while(opcao !== 0);
