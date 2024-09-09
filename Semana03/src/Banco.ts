@@ -40,6 +40,8 @@ export default class Banco{
             if(numeroConta === this.contas[i].getNumero()){
                 indexDestino = i
             }
+
+            return;
         }
         //buscar a conta de origem da transferencia
             //pedir calor da transferencia
