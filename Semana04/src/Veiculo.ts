@@ -1,7 +1,12 @@
+import leia from "readline-sync"
+
 export default class Veiculos{
-    constructor(marca: string, modelo:string){
+    constructor(marca: string, modelo:string, ano: number, valor: number, disponivel: boolean){
         this.marca = marca;
         this.modelo = modelo;
+        this.ano = ano;
+        this.valor = valor;
+        this.disponivel = disponivel;
     }
 
     private marca:string;
@@ -11,6 +16,10 @@ export default class Veiculos{
     private disponivel: boolean;
     private historicoTransferencia: string[] = [];
 
+
+public detalhesVeiculos(){
+
+}
 
     public getAno() : number {
         return this.ano;
@@ -43,6 +52,7 @@ export default class Veiculos{
     public setHistoricoTransferencia(histTransf: string[]): void{
         this.historicoTransferencia = histTransf;
     }
+
 
 }
 
