@@ -33,7 +33,7 @@ export default class Revendedor{
     public listaVeiculosDisponiveis(){
         var index;
         index = this.listaVeiculos.findIndex(veiculo => veiculo.getDisponivel() === true);
-        console.table(this.getDisponivel())
+        console.table(this.listaVeiculos)
     }
 
     public realizarVenda(){
