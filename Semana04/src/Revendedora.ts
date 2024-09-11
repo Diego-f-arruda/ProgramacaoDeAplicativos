@@ -12,6 +12,17 @@ export default class Revendedor{
     }
 
     public adicionarVeiculo(){
+        var marca = leia.question("Qual a marca do veiculo? ");
+        var modelo = leia.question("Qual o modelo do veiculo? ");
+        var ano = leia.questionInt("Informe o Ano: ");
+        var valor = leia.questionFloat("Informe o valor: ");
+        var disponibilidade = leia.keyInSelect(["Disponivel", "Indisponivel"]) + 1;
+        var disponivel;
+        if(disponibilidade === 1){
+            disponivel = true;
+        }else{
+            disponivel = false;
+        }
         
         var opcao = leia.keyInSelect(["carro", "Moto"]) +1;
         var veiculo = new Veiculos(marca, modelo, ano, valor, disponivel);
