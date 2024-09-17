@@ -43,3 +43,8 @@ header nav ul li a{
     font-weight: bold;
 
 }
+header nav ul li:hover{
+    background-color: green;
+    color: rgb(6, 247, 6);
+
+}
