@@ -1,27 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     color: #333333;
-    display:flex;
+    display: flex;
     flex-direction: column;
     background-color: #f9f9f9;
     min-height: 100vh;
 
 }
 
-header{
-    background-color: #006bb7; 
+header {
+    background-color: #006bb7;
     width: 100vw;
     padding: 20px;
     text-align: center;
 }
 
-header h1{
+header h1 {
     color: whitesmoke;
     font-size: 50px;
     font-family: cursive;
@@ -29,7 +29,7 @@ header h1{
     margin-bottom: 20px;
 }
 
-header nav ul{
+header nav ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -37,14 +37,122 @@ header nav ul{
     gap: 20px;
 }
 
-header nav ul li a{
+header nav ul li a {
     color: whitesmoke;
     text-decoration: none;
     font-weight: bold;
-
 }
-header nav ul li:hover{
-    background-color: green;
-    color: rgb(6, 247, 6);
 
+header nav ul li {
+    padding: 10px 20px;
+}
+
+header nav ul li:hover {
+    background-color: rgb(60, 1, 238);
+    color: rgb(164, 217, 4);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+main {
+    background-color: rgb(207, 217, 227);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.section_main {
+    background-color: aqua;
+    max-width: 70%;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.section_main h2 {
+    color: #006bb7;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.section_main p {
+    color: #999;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.section_main img {
+    width: 100%;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.sectionCursos {
+    min-width: 80%;
+}
+
+.divConteudo {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
+
+.divItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+    padding: 20px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+}
+
+.divItem h2 {
+    text-align: center;
+    text-transform: capitalize;
+    color: #158479;
+    font-size: 20px;
+}
+
+.divItem p {
+    text-align: center;
+    color: #659548;
+    font-family: cursive;
+}
+
+.sectionContato {
+    min-width: 40%;
+}
+
+.sectionContato form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionContato form input, .sectionContato form textarea {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #659548;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.sectionContato form button{
+    padding: 20px;
+    background-color: #1b83cd;
+    color:whitesmoke;
+    font-size: 20px;
+    border: none;
+    border-radius: 60px;
+}
+
+.sectionContato form button:hover{
+    background-color: #013f6b;
 }
