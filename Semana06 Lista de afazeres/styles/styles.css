@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: cursive;
+    background-color: rgb(204, 252, 252);
+    display: flex; /*necessario para utilizar os proximos 3 comandos corretamente*/
+    justify-content: center; /*Alinhamento horizontal*/
+    align-items: start; /*Alinhamento vertical*/
+    height: 100vh; /*vh representa o espaço de view */
+
+}
+
+.container{
+    background-color: rgb(131, 247, 247);
+    margin-top: 30px;
+    width: 70%;
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 33px -19px 47px -21px rgba(0,134,158,0.99);
+}
+
+.container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #658545;
+    font-family: "Edu AU VIC WA NT Guides", cursive;;
+}
+
+.container .grupo-input{
+    display: flex;
+    flex-direction: row;
+}
+
+#adicionarItem{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #998545;
+    border-radius: 10px;
+    outline: none;
+    font-family: cursive;
+    font-size: 10px;
+}
+
+#add{
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #28a745;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+}
+
+#add:hover{
+    background-color: #288838;
+}
+
+#lista-tarefa{
+    list-style-type: none; /*Remove a bola de icone de uma lista*/
+    margin-top: 2px;
+}
+
+#lista-tarefa li{
+    background-color: rgb(83, 223, 223);
+    border: #288838;
+    display: flex;
+    justify-content: space-between; /*Separa os itens em espaçamentos iguais*/
+    padding: 15px;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.check, .delete, .edit{
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.check{
+    color: rgb(102, 179, 1);
+    font-size: 20px;
+}
+
+.delete{
+    color: #007bff;
+}
+
+.edit{
+    color: #dc3545;
+}
+
+.completed{
+    background-color: rgb(34, 213, 213) !important;
+}
+
