@@ -20,31 +20,18 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body>
+<body onload="carregarTarefas()">
     <div class="container">
         <h1>Lista de Compras</h1>
         <div class="grupo-input">
-            <input type="text" name="adicionarItem" id="adicionarItem" placeholder="Adicionar Item">
+            <input type="text" name="adicionarItem" id="adicionarItem" placeholder="Adicionar Item" onkeypress="addPeloEnter(event)">
             <button id="add" onclick="adicionaTarefa()"><span class="material-symbols-outlined">
                     add
                 </span></button>
         </div>
 
         <ul id="lista-tarefa">
-            <li class="completed">
-                <span>Tarefa 01</span>
-                <div>
-                    <button class="check"><span class="material-symbols-outlined">
-                            check
-                        </span></button>
-                    <button class="edit"><span class="material-symbols-outlined">
-                            edit_note
-                        </span></button>
-                    <button class="delete"><span class="material-symbols-outlined">
-                            delete_forever
-                        </span></button>
-                </div>
-            </li>
+
         </ul>
     </div>
 
