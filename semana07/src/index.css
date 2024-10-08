@@ -34,7 +34,7 @@ body {
   column-gap: 10px;
 }
 
-#tarefa-text {
+#adicionarItem {
   color:rgb(43, 46, 226);
   flex: 1;
   padding: 10px;
@@ -70,7 +70,31 @@ body {
   display: flex;
   justify-content: space-between;
   border-radius: 10px;
-  padding: 1px;
+  padding: 2px;
   align-items: center;
   width: 100%;
+}
+
+
+.check, .delete, .edit {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.check {
+  color: #218838;
+}
+
+.delete {
+  color: #dc3545;
+}
+
+.edit {
+  color: #007bff;
+}
+
+.completed {
+  background-color: #03c4ff !important;
 }
