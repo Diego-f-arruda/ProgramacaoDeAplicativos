@@ -1,33 +1,6 @@
-/**
- * This file will automatically be loaded by vite and run in the "renderer" context.
- * To learn more about the differences between the "main" and the "renderer" context in
- * Electron, visit:
- *
- * https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes
- *
- * By default, Node.js integration in this file is disabled. When enabling Node.js integration
- * in a renderer process, please be aware of potential security implications. You can read
- * more about security risks here:
- *
- * https://electronjs.org/docs/tutorial/security
- *
- * To enable Node.js integration in this file, open up `main.ts` and enable the `nodeIntegration`
- * flag:
- *
- * ```
- *  // Create the browser window.
- *  mainWindow = new BrowserWindow({
- *    width: 800,
- *    height: 600,
- *    webPreferences: {
- *      nodeIntegration: true
- *    }
- *  });
- * ```
- */
-
 import './index.css';
 import Tarefa from './Tarefa';
+import Swal from 'sweetalert2';
 
 let tarefas: Tarefa[] = [];
 
@@ -73,6 +46,7 @@ function render(){
         const edit = document.createElement("span");
         edit.textContent = "Editar"
         edit.classList.add("edit");
+        //edit.onclick = () => editarTarefa(tarefas[i].getId())
         edit.setAttribute("onclick", `editarTarefa(${tarefas[i].getId()})` )
 
         const deletar = document.createElement("span");
@@ -94,12 +68,70 @@ function render(){
 
 }
 
+function trocaConcluir(id: number){
+    const index = tarefas.findIndex(tarefa => tarefa.getId() === id);
+    
+    const valorAtual = tarefas[index].getCompleted()
+    tarefas[index].setCompleted(!valorAtual);
+    localStorage.setItem("tarefas", JSON.stringify(tarefas))
+    render();
+    
+    // if(tarefas[index].getCompleted() === true){
+    //     tarefas[index].setCompleted(false);
+    // }else{
+    //     tarefas[index].setCompleted(true);
+    // }
+}
+
+async function editarTarefa(id: number){
+    const index = tarefas.findIndex(tarefa => tarefa.getId() === id);
+    //const novoTextoTarefa = prompt("Edite a tarefa", tarefas[index].getText());
+    
+    const {value} = await Swal.fire({
+        title: "Editar Tarefa!!!",
+        input: "text",
+        inputLabel: "Edite Sua Tarefa Agora",
+        inputValue: tarefas[index].getText(),
+        showCancelButton: true,
+    });
+    //const acima funciona como o prompt
+    if(value !== null && value.trim() !== ""){
+        tarefas[index].setText(value.trim());
+        localStorage.setItem("tarefas", JSON.stringify(tarefas))
+            render();
+        }
+    
+    console.log(value);
+}
+
+function deletarTarefa(id: number){
+    tarefas = tarefas.filter(tarefa => tarefa.getId() !== id); //ira puxar/filtrar todos os id diferentes do que veio como parametro
+    
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+
+    render();
+}
+
 function addPeloEnter(evento: KeyboardEvent){
     console.log(evento)
     if(evento.key === 'Enter'){
         adicionarTarefa();
     }
 }
+
+function carregarTarefas(){
+    const tarefasLS = localStorage.getItem("tarefas");
+    if(tarefasLS){
+        tarefas = JSON.parse(tarefasLS);
+        render();
+    }
+}
+
+
 window.addPeloEnter = addPeloEnter;
 window.adicionarTarefa = adicionarTarefa;
+window.trocaConcluir = trocaConcluir;
+window.editarTarefa = editarTarefa;
+window.deletarTarefa = deletarTarefa;
+window.carregarTarefas = carregarTarefas;
 
