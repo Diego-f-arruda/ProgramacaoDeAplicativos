@@ -10,7 +10,7 @@ export default class Veiculo {
     private imagem: string
 
     constructor(modelo: string, cor: string, ano: number, preco: number, placa: string, imagem: string, id?:string){
-        this.id = id === null? uuid() : id;  // dessa forma ja valida se ja foi feito um id 
+        this.id = id === undefined ? uuid() : id;  // dessa forma ja valida se ja foi feito um id 
         this.modelo = modelo;
         this.cor = cor;
         this.ano = ano;
@@ -45,34 +45,5 @@ export default class Veiculo {
     public getImagem(){
         return this.imagem;
     }
-
-    public setId(){
-        
-    }
-
-    public setModelo(){
-        
-    }
-
-    public setCor(){
-        
-    }
-
-    public setAno(){
-        
-    }
-
-    public setPreco(){
-        
-    }
-
-    public settPlaca(){
-        
-    }
-
-    public setImagem(){
-        
-    }
-
 
 }

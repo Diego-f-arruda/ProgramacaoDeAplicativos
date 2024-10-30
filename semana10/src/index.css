@@ -63,8 +63,6 @@ form .input-data {
   margin-bottom: 20px;
 }
 
-form .input-data:not(:last-of-type) {
-}
 
 form .input-data label {
   color: #333333;
