@@ -34,8 +34,8 @@ export default class VeiculoRepository {
     async findAll(){
         try {
             this.connection.connect();
-            const sql = "SELECT * FROM veiculos"
-            const result = await this.connection.query(sql);
+            const sql = "SELECT * FROM veiculos WHERE esta_ativo = $1"
+            const result = await this.connection.query(sql, [true]);
             if(result.rows.length > 0){
                 return result.rows;
             }else{
@@ -66,13 +66,13 @@ export default class VeiculoRepository {
         }
     }
 
-    async deletarPorId(id: string){
+    async delete(id: string){
         try {
             await this.connection.connect();
-            const sql = "DELETE * FROM veiculos WHERE id = $1"
+            const sql = "UPDATE veiculos SET esta_ativo = $1 WHERE id = $2"
             // const values = [id];
-            const result = await this.connection.query(sql, [id]);
-            return result.rows;
+            await this.connection.query(sql, [false, id]);
+            
         } catch (error) {
             console.log(error)
         }finally{

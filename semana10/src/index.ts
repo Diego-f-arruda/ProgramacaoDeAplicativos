@@ -69,3 +69,7 @@ ipcMain.handle('findAll', async () => {
 ipcMain.handle('findById', async (event: any, id: any) => {
   return await new VeiculoRepository().findById(id);
 })
+
+ipcMain.handle('deletarVeiculo', async(event:any, id: any) => {
+  await new VeiculoRepository().delete(id);
+})
