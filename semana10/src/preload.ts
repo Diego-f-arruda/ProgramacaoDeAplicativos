@@ -7,3 +7,8 @@ contextBridge.exposeInMainWorld('bancoAPI', {
     findById: async (id: string) => await ipcRenderer.invoke('findById', id),
     deletarVeiculo: async (id: string) => await ipcRenderer.invoke('deletarVeiculo', id)
 } )
+
+contextBridge.exposeInMainWorld('navegacaoAPI', {
+    paginaDetalhes: (id: string) => ipcRenderer.send("trocaPagina", id),
+    paginaHome: () => ipcRenderer.send("trocaParaPrincipal")
+})

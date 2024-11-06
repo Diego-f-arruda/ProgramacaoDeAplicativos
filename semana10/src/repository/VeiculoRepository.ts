@@ -57,7 +57,7 @@ export default class VeiculoRepository {
             const sql = "SELECT * FROM veiculos WHERE id = $1"
             // const values = [id];
             const result = await this.connection.query(sql, [id]);
-            return result.rows;
+            return result.rows[0];
         } catch (error) {
             console.log(error)
         }finally{
@@ -70,7 +70,6 @@ export default class VeiculoRepository {
         try {
             await this.connection.connect();
             const sql = "UPDATE veiculos SET esta_ativo = $1 WHERE id = $2"
-            // const values = [id];
             await this.connection.query(sql, [false, id]);
             
         } catch (error) {

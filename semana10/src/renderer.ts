@@ -62,7 +62,7 @@ window.onload = async () => {
 }
 
 
-function render(){
+export default function render(){
   let aside = document.getElementById("lista-veiculo");
   aside.innerHTML = "";
 
@@ -78,13 +78,14 @@ function render(){
         <span>Placa: ${listaVeiculos[i].getPlaca()}</span>
       </div>
       <div class="botao-card">
-        <button id="botao-ver" data-id="${listaVeiculos[i].getId()}">Ver</button>
+        <button id="botao-ver" onclick="paginaDetalhes('${listaVeiculos[i].getId()}')">Ver</button>
         <button id="botao-deletar" onclick="deletarVeiculo('${listaVeiculos[i].getId()}')">Deletar</button>
       </div>
     </div>
       `;
   }
 }
+
 
 
 function deletarVeiculo(id: string){
@@ -99,4 +100,10 @@ function deletarVeiculo(id: string){
   render();
 }
 
+function paginaDetalhes(id: string){
+  (window as any).navegacaoAPI.paginaDetalhes(id);
+
+}
+
+(window as any).paginaDetalhes = paginaDetalhes;
 (window as any).deletarVeiculo = deletarVeiculo;
