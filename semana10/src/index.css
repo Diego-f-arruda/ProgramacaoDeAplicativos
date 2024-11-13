@@ -9,7 +9,7 @@ body {
 }
 
 header {
-  background-color: #a0deff;
+  background-color: #7fcdcf;
   margin: 30px auto 10px;
   width: 80vw;
   padding: 20px;
@@ -33,7 +33,7 @@ main {
 }
 
 form {
-  background-color: #a0deff;
+  background-color: #7fcdcf;
   width: 500px;
   height: fit-content;
   border-radius: 16px;

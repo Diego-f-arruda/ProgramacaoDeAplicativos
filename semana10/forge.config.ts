@@ -39,9 +39,16 @@ const config: ForgeConfig = {
             name: 'detalhes',
             preload: {
               js: './src/preload.ts',
-            }
+            },
+          },
+          {
+            html: './src/view/login/login.html',
+            js: './src/view/login/renderer.ts',
+            name: 'login',
+            preload: {
+              js: './src/preload.ts',
+            },
           }
-          
         ],
       },
     }),
